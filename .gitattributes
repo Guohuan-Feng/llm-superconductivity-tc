@@ -1,0 +1,2 @@
+# Keep data files byte-identical to data/SHA256SUMS.txt on every platform
+data/** -text
