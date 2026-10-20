@@ -13,6 +13,7 @@
 | Materials Project | 3DSC_MP 晶体结构的来源 | https://materialsproject.org | CC BY 4.0 |
 | 2024–2026 年新报道的超导体 | 时间外推检验（冻结候选 89 个，严格主集 69 个） | 从原始文献整理，每个材料的 DOI 或 arXiv 来源见 [`data/new_materials_sources.csv`](data/new_materials_sources.csv) | 以各来源为准 |
 | Matbench `mp_e_form` | 验证器循环的形成能可行性试验 | https://figshare.com/articles/dataset/mp_e_form/9755432 | MIT |
+| 开发集输入（本仓库） | 3764 个材料的开发集，含标签、关联组与三折划分；X127 与 X969 特征；HGB127 折外预测；各训练折的规则库 | [`data/development/`](data/development) · [`data/rule_banks/`](data/rule_banks) | CC BY 4.0（由 3DSC 派生） |
 
 ## 模型与软件
 
@@ -37,14 +38,24 @@
 | `common.py`、`stats.py`、`*_stats.py` | 公共 | 组加权指标与按组 bootstrap 置信区间 |
 | `*.ps1` | 公共 | 长时间运行使用的 Windows 计划任务启动脚本 |
 | `*_instructions.md`、`*.schema.json`、`*_prompts.py` | 公共 | LLM 指令、提示词与输出格式 |
+| `data_preparation/` | 输入 | 生成开发集输入与规则库的脚本 |
+
+数据位于 [`data/`](data)：
+
+| 路径 | 内容 |
+| --- | --- |
+| [`data/development/`](data/development) | 开发集：材料、标签、关联组、三折划分、特征与 HGB127 折外预测 |
+| [`data/rule_banks/`](data/rule_banks) | 只用训练折挖掘的规则库（外层 3 个，内层 18 个） |
+| [`data/new_materials_sources.csv`](data/new_materials_sources.csv) | 时间外推检验中 2024–2026 年新材料的文献来源 |
+| [`data/SHA256SUMS.txt`](data/SHA256SUMS.txt) | 数据文件校验和 |
 
 ## 复现说明
 
-- 开发集输入（`accepted_train.npz`，含 127 维成分与结构特征、标签、关联组与三折划分）以及每折的训练集规则库由早期流程生成，未包含在本仓库中。脚本读取的全部输入文件见 [`code/INPUTS.md`](code/INPUTS.md)。
-- 脚本与 `INPUTS.md` 中的路径为原 Windows 机器上的绝对路径，复现时需要修改。
+- 实验脚本读取的全部输入都在 [`data/`](data) 中。各数据目录的 README 列出每个文件与 [`code/INPUTS.md`](code/INPUTS.md) 中原路径的对应关系；开发集的每个材料都对应到 3DSC 原始数据中的一行。
+- 脚本与 `INPUTS.md` 中的路径为原 Windows 机器上的绝对路径，复现时需改为指向 `data/`。
 - 运行环境：Python 3.12、NumPy、scikit-learn；CGCNN 与 CHGNet 需要 PyTorch；LLM 调用需要已登录的 Codex CLI。
 - 除特别说明外，结果均为同一数据集上的开发结果。
 
 ## 许可
 
-尚未选择开源许可；在添加许可之前保留全部权利。
+[`data/development/`](data/development) 与 [`data/rule_banks/`](data/rule_banks) 中的数据由 3DSC 派生，按 CC BY 4.0 发布，使用时需注明上表中的来源。代码尚未选择开源许可，在添加许可之前保留全部权利。

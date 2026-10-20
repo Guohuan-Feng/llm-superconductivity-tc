@@ -13,6 +13,7 @@ Code for a diagnostic study of whether a large language model (LLM) predicts if 
 | Materials Project | Source of the 3DSC_MP crystal structures | https://materialsproject.org | CC BY 4.0 |
 | Newly reported superconductors (2024–2026) | Temporal extrapolation test (89 frozen candidates, 69 in the strict primary set) | Compiled from primary literature; one row per material with its DOI or arXiv source in [`data/new_materials_sources.csv`](data/new_materials_sources.csv) | See each source |
 | Matbench `mp_e_form` | Formation-energy feasibility test for a verifier loop | https://figshare.com/articles/dataset/mp_e_form/9755432 | MIT |
+| Development inputs (this repository) | The 3,764-material development set with labels, association groups and three folds; X127 and X969 features; HGB127 out-of-fold predictions; training-fold rule banks | [`data/development/`](data/development) · [`data/rule_banks/`](data/rule_banks) | CC BY 4.0 (derived from 3DSC) |
 
 ## Models and software
 
@@ -37,14 +38,24 @@ All scripts are in [`code/`](code). File-name prefixes follow the experiment sta
 | `common.py`, `stats.py`, `*_stats.py` | Shared | Group-weighted metrics and group-bootstrap confidence intervals |
 | `*.ps1` | Shared | Windows scheduled-task launchers for long runs |
 | `*_instructions.md`, `*.schema.json`, `*_prompts.py` | Shared | LLM instructions, prompts and output schemas |
+| `data_preparation/` | Inputs | Scripts that built the development inputs and rule banks |
+
+Data are in [`data/`](data):
+
+| Path | Content |
+| --- | --- |
+| [`data/development/`](data/development) | Development set: materials, labels, groups, folds, features and HGB127 out-of-fold predictions |
+| [`data/rule_banks/`](data/rule_banks) | Rule banks mined from training folds (3 outer, 18 inner) |
+| [`data/new_materials_sources.csv`](data/new_materials_sources.csv) | Sources of the 2024–2026 materials in the temporal test |
+| [`data/SHA256SUMS.txt`](data/SHA256SUMS.txt) | Checksums of the data files |
 
 ## Reproducing
 
-- The development inputs (`accepted_train.npz` with the 127 composition and structure features, labels, association groups and three folds) and the per-fold training rule banks were produced by an earlier pipeline and are not included. [`code/INPUTS.md`](code/INPUTS.md) lists every input file the scripts read.
-- Paths in the scripts and in `INPUTS.md` are absolute paths on the original Windows machine and must be adapted.
+- All inputs the experiment scripts read are in [`data/`](data). Each data folder's README maps its files to the original paths in [`code/INPUTS.md`](code/INPUTS.md), and every development material links to its row in 3DSC.
+- Paths in the scripts and in `INPUTS.md` are absolute paths on the original Windows machine and must be pointed at `data/`.
 - Python 3.12 with NumPy and scikit-learn; PyTorch for CGCNN and CHGNet; a logged-in Codex CLI for LLM calls.
 - Results are development results on one dataset unless stated otherwise.
 
 ## Licence
 
-No licence has been chosen yet; all rights are reserved until one is added.
+Data in [`data/development/`](data/development) and [`data/rule_banks/`](data/rule_banks) are derived from 3DSC and distributed under CC BY 4.0 with attribution to the sources above. No licence has been chosen for the code yet; all rights to the code are reserved until one is added.

@@ -1,0 +1,22 @@
+level,bank,training_folds,n_rules,file,bytes
+outer,outer0_TRAIN,all folds except 0,310,outer0_TRAIN_bank.json.gz,1953654
+outer,outer1_TRAIN,all folds except 1,303,outer1_TRAIN_bank.json.gz,2017451
+outer,outer2_TRAIN,all folds except 2,306,outer2_TRAIN_bank.json.gz,2001255
+inner,outer0_innerTRAIN1,fold 1,251,outer0_innerTRAIN1.json.gz,808960
+inner,outer0_innerTRAIN1_exclude_subfold0,fold 1 without subfold 0,207,outer0_innerTRAIN1_exclude_subfold0.json.gz,277317
+inner,outer0_innerTRAIN1_exclude_subfold1,fold 1 without subfold 1,216,outer0_innerTRAIN1_exclude_subfold1.json.gz,444897
+inner,outer0_innerTRAIN2,fold 2,247,outer0_innerTRAIN2.json.gz,838248
+inner,outer0_innerTRAIN2_exclude_subfold0,fold 2 without subfold 0,200,outer0_innerTRAIN2_exclude_subfold0.json.gz,327272
+inner,outer0_innerTRAIN2_exclude_subfold1,fold 2 without subfold 1,208,outer0_innerTRAIN2_exclude_subfold1.json.gz,368198
+inner,outer1_innerTRAIN0,fold 0,252,outer1_innerTRAIN0.json.gz,919515
+inner,outer1_innerTRAIN0_exclude_subfold0,fold 0 without subfold 0,220,outer1_innerTRAIN0_exclude_subfold0.json.gz,541186
+inner,outer1_innerTRAIN0_exclude_subfold1,fold 0 without subfold 1,205,outer1_innerTRAIN0_exclude_subfold1.json.gz,286164
+inner,outer1_innerTRAIN2,fold 2,247,outer1_innerTRAIN2.json.gz,832450
+inner,outer1_innerTRAIN2_exclude_subfold0,fold 2 without subfold 0,200,outer1_innerTRAIN2_exclude_subfold0.json.gz,323066
+inner,outer1_innerTRAIN2_exclude_subfold1,fold 2 without subfold 1,208,outer1_innerTRAIN2_exclude_subfold1.json.gz,370203
+inner,outer2_innerTRAIN0,fold 0,252,outer2_innerTRAIN0.json.gz,923573
+inner,outer2_innerTRAIN0_exclude_subfold0,fold 0 without subfold 0,220,outer2_innerTRAIN0_exclude_subfold0.json.gz,542079
+inner,outer2_innerTRAIN0_exclude_subfold1,fold 0 without subfold 1,205,outer2_innerTRAIN0_exclude_subfold1.json.gz,289356
+inner,outer2_innerTRAIN1,fold 1,251,outer2_innerTRAIN1.json.gz,813317
+inner,outer2_innerTRAIN1_exclude_subfold0,fold 1 without subfold 0,207,outer2_innerTRAIN1_exclude_subfold0.json.gz,276159
+inner,outer2_innerTRAIN1_exclude_subfold1,fold 1 without subfold 1,216,outer2_innerTRAIN1_exclude_subfold1.json.gz,448921
