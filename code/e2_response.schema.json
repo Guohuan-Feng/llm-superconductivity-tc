@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "decide",
+        "request"
+      ]
+    },
+    "p": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "abstain": {
+      "type": "boolean"
+    },
+    "selected_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3
+    },
+    "request_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 6
+    },
+    "request_counterexamples": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 80
+    }
+  },
+  "required": [
+    "action",
+    "p",
+    "abstain",
+    "selected_rule_ids",
+    "request_rule_ids",
+    "request_counterexamples",
+    "reason"
+  ]
+}

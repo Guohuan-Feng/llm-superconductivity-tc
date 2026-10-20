@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "recognized": {"type": "string", "enum": ["yes", "partial", "no"]},
+    "family": {"type": "string", "maxLength": 20},
+    "reported_Tc_K": {"type": ["number", "null"], "minimum": 0},
+    "reported_superconductor": {"type": "string", "enum": ["yes", "no", "unknown"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "reason": {"type": "string", "maxLength": 60}
+  },
+  "required": ["recognized", "family", "reported_Tc_K", "reported_superconductor", "confidence", "reason"]
+}

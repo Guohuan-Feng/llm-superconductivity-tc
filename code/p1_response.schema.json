@@ -1,0 +1,1 @@
+{"type":"object","properties":{"iteration":{"type":"integer"},"rules_code":{"type":"string"},"summary":{"type":"string"}},"required":["iteration","rules_code","summary"],"additionalProperties":false}

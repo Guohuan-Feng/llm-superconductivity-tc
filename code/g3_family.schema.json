@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"required":["family"],"properties":{"family":{"type":"string","enum":["铜基","铁基","A15","MgB₂ 类","重费米子","Chevrel","硼碳化物","富勒烯","镍基","单质或合金","其他","不是超导体"]}}}

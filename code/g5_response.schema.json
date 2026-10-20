@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"required":["Tc_est_K","p_gt_5K","p_gt_10K","p_gt_15K"],"properties":{"Tc_est_K":{"type":"number","minimum":0},"p_gt_5K":{"type":"number","minimum":0,"maximum":1},"p_gt_10K":{"type":"number","minimum":0,"maximum":1},"p_gt_15K":{"type":"number","minimum":0,"maximum":1}}}
